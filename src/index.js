@@ -1,4 +1,4 @@
-import './js/App';
+import './js/app';
 import './js/Character';
 import './js/Bowman';
 import './js/Magician';
