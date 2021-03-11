@@ -1,7 +1,7 @@
-import Bowman from "./Bowman";
-import Magician from "./Magician";
-import Swordsman from "./Swordsman";
-import Daemon from "./Daemon";
+import Bowman from './Bowman';
+import Magician from './Magician';
+import Swordsman from './Swordsman';
+import Daemon from './Daemon';
 
 export default class Team {
   constructor() {
@@ -24,13 +24,14 @@ export default class Team {
       return {
         done: false,
         value: Object.values(this)[this.current],
-        current: this.current++
-      };
-    } else {
-      delete this.current;
-      return {
-        done: true
+        current: this.current++,
       };
     }
+
+    delete this.current;
+
+    return {
+      done: true,
+    };
   }
 }

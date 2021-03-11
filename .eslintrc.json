@@ -8,6 +8,7 @@
   },
   "rules": {
     "prettier/prettier": ["error"],
+    "no-plusplus":"off",
     "no-restricted-syntax": [
       "error",
       "LabeledStatement",
