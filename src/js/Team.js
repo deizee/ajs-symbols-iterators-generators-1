@@ -5,33 +5,26 @@ import Daemon from './Daemon';
 
 export default class Team {
   constructor() {
-    this.bowman = new Bowman('Иван');
-    this.magician = new Magician('Матильда');
-    this.swordsman = new Swordsman('Бернард');
-    this.daemon = new Daemon('Горыныч');
+    this.team = [
+      new Bowman('Иван'),
+      new Magician('Матильда'),
+      new Swordsman('Бернард'),
+      new Daemon('Горыныч'),
+    ];
   }
 
   [Symbol.iterator]() {
-    return this;
-  }
-
-  next() {
-    if (this.current === undefined) {
-      this.current = 0;
-    }
-
-    if (this.current < Object.keys(this).length - 1) {
-      return {
-        done: false,
-        value: Object.values(this)[this.current],
-        current: this.current++,
-      };
-    }
-
-    delete this.current;
-
+    let current = 0;
+    const { team } = this;
     return {
-      done: true,
+      next() {
+        const res = {
+          done: current >= team.length,
+          value: team[current],
+        };
+        current++;
+        return res;
+      },
     };
   }
 }
